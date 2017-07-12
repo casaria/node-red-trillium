@@ -1,0 +1,27 @@
+{
+  "name": "root",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "freeboard": "file:freeboard",
+    "node-red-contrib-bigtimer": "^1.6.3",
+    "node-red-contrib-freeboard": "file:node-red-contrib-freeboard",
+    "node-red-contrib-ibm-watson-iot": "^0.2.8",
+    "node-red-contrib-influxdb": "0.0.6",
+    "node-red-contrib-particle": "^0.0.3",
+    "node-red-node-geohash": "0.0.7",
+    "node-red-node-google": "^0.1.1",
+    "node-red-node-openweathermap": "^0.1.14",
+    "node-red-node-pushover": "0.0.11",
+    "node-red-node-smooth": "0.0.11",
+    "node-status-codes": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

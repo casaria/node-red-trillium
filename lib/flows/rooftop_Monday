@@ -1,0 +1,1 @@
+[{"id":"4a78aa6b.b58754","type":"pushover","z":"72aaaf59.ec05b","name":"PUSHIOVER QFCL ALERT","device":"","title":"Water heater ","priority":"1","sound":"persistent","x":779.6968994140625,"y":276.1326599121094,"wires":[]}]
