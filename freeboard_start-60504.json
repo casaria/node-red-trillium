@@ -4,7 +4,57 @@
 	"plugins": [],
 	"panes": [
 		{
-			"title": "Write data/control",
+			"width": 1,
+			"row": {
+				"3": 1,
+				"4": 5
+			},
+			"col": {
+				"3": 1,
+				"4": 1
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "highcharts-timeseries",
+					"settings": {
+						"timeframe": 60,
+						"blocks": "8",
+						"chartType": "area",
+						"xaxis": "{\"title\":{\"text\" : \"Time\"}, \"type\": \"datetime\", \"floor\":0}",
+						"yaxis": "{\"title\":{\"text\" : \"Values\"}, \"minorTickInterval\":\"auto\", \"floor\":0}",
+						"series1": "datasources[\"LH-RT-N\"][\"Ambient\"]",
+						"series2": "datasources[\"LH-RT-N\"][\"Humidity\"]",
+						"series3": "datasources[\"LH-S\"][\"Ambient\"]"
+					}
+				}
+			]
+		},
+		{
+			"width": 1,
+			"row": {
+				"3": 1,
+				"4": 1
+			},
+			"col": {
+				"3": 2,
+				"4": 1
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "RT Unit North - Operation mode",
+						"size": "regular",
+						"value": "datasources[\"LH-RT-N\"][\"Color\"]",
+						"animate": true
+					}
+				}
+			]
+		},
+		{
+			"title": "Data/control (Demo only (disconnected) - Controls are going to DWEET.IO onlyP",
 			"width": 1,
 			"row": {
 				"2": 45,
@@ -16,12 +66,12 @@
 				"3": 2,
 				"4": 2
 			},
-			"col_width": 1,
+			"col_width": 2,
 			"widgets": [
 				{
 					"type": "switch_plugin",
 					"settings": {
-						"title": "POST to dweet.io",
+						"title": "POST to dweet.io ( determines status of SW2)",
 						"value": "datasources[\"dweet\"][\"SWITCH2\"]",
 						"urlOn": "https://dweet.io:443/dweet/for/LHLAXN?SWITCH1=1",
 						"urlOff": "https://dweet.io:443/dweet/for/LHLAXN?SWITCH1=0",
@@ -32,7 +82,7 @@
 				{
 					"type": "switch_plugin",
 					"settings": {
-						"title": "read/write from dweet.io",
+						"title": "POST to dweet.io ( determines status of SW1)",
 						"value": "datasources[\"dweet\"][\"SWITCH1\"]",
 						"urlOn": "https://dweet.io:443/dweet/for/LHLAXN?SWITCH2=1",
 						"urlOff": "https://dweet.io:443/dweet/for/LHLAXN?SWITCH2=0",
@@ -64,45 +114,30 @@
 					"type": "slider_plugin",
 					"settings": {
 						"title": "Setpoint ROOM 233",
-						"min": "22",
-						"max": "27",
-						"value": "datasources[\"SLIDER233\"]",
-						"url": "https://dweet.io:443/dweet/for/LHLAXN?SLIDER233=%VALUE%"
+						"min": "20",
+						"max": "30",
+						"value": "datasources[\"LH-RT-N\"][\"Ambient\"]",
+						"url": "https://dweet.io:443/dweet/for/SLIDER233=%VALUE%"
 					}
 				},
 				{
 					"type": "gauge",
 					"settings": {
-						"title": "Temperature",
+						"title": "Temperature (2nd Floor\\ indoor)",
 						"value": "datasources[\"LH-RT-N\"][\"Ambient\"]",
 						"units": "deg C",
 						"min_value": 0,
 						"max_value": "50"
 					}
-				}
-			]
-		},
-		{
-			"width": 1,
-			"row": {
-				"4": 1
-			},
-			"col": {
-				"4": 1
-			},
-			"col_width": 1,
-			"widgets": [
+				},
 				{
-					"type": "highcharts-timeseries",
+					"type": "flot_extended_plugin",
 					"settings": {
-						"timeframe": 60,
-						"blocks": "8",
-						"chartType": "area",
-						"xaxis": "{\"title\":{\"text\" : \"Time\"}, \"type\": \"datetime\", \"floor\":0}",
-						"yaxis": "{\"title\":{\"text\" : \"Values\"}, \"minorTickInterval\":\"auto\", \"floor\":0}",
-						"series1": "datasources[\"LH-RT-N\"][\"Ambient\"]",
-						"series2": "datasources[\"LH-RT-N\"][\"Humidity\"]",
-						"series3": "datasources[\"LH-S\"][\"Ambient\"]"
+						"plot_type": "stacked_area",
+						"legend": true,
+						"height": 2,
+						"value": "datasources[\"LH-RT-N\"][\"Ambient\"]",
+						"zoom": ""
 					}
 				}
 			]
@@ -130,20 +165,14 @@
 			"name": "dweet",
 			"type": "dweet_io",
 			"settings": {
-				"thing_id": "LHLAXN",
-				"name": "dweet"
+				"thing_id": "LHLAXN"
 			}
 		},
 		{
 			"name": "SLIDER233",
-			"type": "SLIDER233",
-			"settings": {}
-		},
-		{
-			"name": "SLI233",
 			"type": "dweet_io",
 			"settings": {
-				"thing_id": "LHLAXN?SLIDER233"
+				"thing_id": "SLIDER_233"
 			}
 		}
 	],

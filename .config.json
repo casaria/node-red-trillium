@@ -784,23 +784,6 @@
     }
    }
   },
-  "node-red-contrib-freeboard": {
-   "name": "node-red-contrib-freeboard",
-   "version": "0.0.7",
-   "local": true,
-   "nodes": {
-    "freeboard": {
-     "name": "freeboard",
-     "types": [
-      "freeboard"
-     ],
-     "enabled": true,
-     "local": true,
-     "module": "node-red-contrib-freeboard",
-     "file": "/root/.node-red/node_modules/node-red-contrib-freeboard/freeboard.js"
-    }
-   }
-  },
   "node-red-contrib-google": {
    "name": "node-red-contrib-google",
    "version": "0.1.0",
